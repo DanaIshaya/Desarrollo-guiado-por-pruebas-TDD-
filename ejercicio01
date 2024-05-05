@@ -1,0 +1,22 @@
+"Importar modulo unittest para permitir la automatizacion de pruebas unitarias"
+import unittest
+
+"Función para calcular el Máximo Común Divisor (MCD) de dos números"
+def mcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+"Funcion para calcular el Minimo Común Divisor"
+def MinimoComunDivisor(a, b, c, d):
+    mcd_ab = mcd(a, b)
+    mcd_cd = mcd(c, d)
+    return mcd(mcd_ab, mcd_cd)
+
+"Prueba del caso del minimo comun divisor"
+class TestMinimoComunDivisor(unittest.TestCase):
+    def test_MinimoComunDivisor(self):
+        resultado_esperado = 6
+        self.assertEqual(MinimoComunDivisor(18,36,48,72), resultado_esperado)
+
+if __name__ == "__main__":
+    unittest.main()
